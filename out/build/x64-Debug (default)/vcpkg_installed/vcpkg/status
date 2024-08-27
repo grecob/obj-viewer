@@ -190,3 +190,13 @@ Abi: bfcd68a7440fc06d9e2781af9debe9f4c9f0493f242d33e8c86c439aa521c541
 Description: The Open Asset import library
 Status: install ok installed
 
+Package: glm
+Version: 1.0.1
+Port-Version: 3
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 359c561c3bd3bf804e21307a7e2151214e780c247e1b601deb09ebc72b73791d
+Description: OpenGL Mathematics (GLM)
+Status: install ok installed
+

@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-project ("imGuiExample")
+project ("obj-viewer")
 
 # Include sub-projects.
-add_subdirectory ("imGuiExample")
+add_subdirectory ("src")
