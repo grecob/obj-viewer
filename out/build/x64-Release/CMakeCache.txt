@@ -186,8 +186,8 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 // during RELWITHDEBINFO builds.
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
-//The CMake toolchain file
-CMAKE_TOOLCHAIN_FILE:FILEPATH=N:/VSCode/vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake
+//No help, variable specified on the command line.
+CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=N:/VSCode/vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
@@ -266,6 +266,9 @@ Z_VCPKG_PWSH_PATH:FILEPATH=Z_VCPKG_PWSH_PATH-NOTFOUND
 // triplet
 _VCPKG_INSTALLED_DIR:PATH=N:/VSCode/side-projects/imGuiExample/out/build/x64-Release/vcpkg_installed
 
+//The directory containing a CMake configuration file for assimp.
+assimp_DIR:PATH=N:/VSCode/side-projects/imGuiExample/out/build/x64-Release/vcpkg_installed/x64-windows/share/assimp
+
 //The directory containing a CMake configuration file for glad.
 glad_DIR:PATH=N:/VSCode/side-projects/imGuiExample/out/build/x64-Release/vcpkg_installed/x64-windows/share/glad
 
@@ -280,6 +283,9 @@ imGuiExample_SOURCE_DIR:STATIC=N:/VSCode/side-projects/imGuiExample
 
 //The directory containing a CMake configuration file for imgui.
 imgui_DIR:PATH=N:/VSCode/side-projects/imGuiExample/out/build/x64-Release/vcpkg_installed/x64-windows/share/imgui
+
+//The directory containing a CMake configuration file for pugixml.
+pugixml_DIR:PATH=N:/VSCode/side-projects/imGuiExample/out/build/x64-Release/vcpkg_installed/x64-windows/share/pugixml
 
 
 ########################
