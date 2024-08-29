@@ -3,8 +3,10 @@
 
 #include <iostream>
 #include "UseImGui.h"
+#include "Model.h"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
+#include <filesystem>
 
 
 using namespace std;
@@ -30,8 +32,14 @@ int main()
 	glfwSwapInterval(1); // enable vsync
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-		throw("Unabble to context to OpenGL");
+		throw("Unable to context to OpenGL");
 	}
+
+	glEnable(GL_DEPTH_TEST);
+	//Shader shader("1.model_loading.vs", "1.model_loading.fs");
+	// flip textures on load
+	Model model("NISSAN-GTR.obj");
+
 
 	int screen_width, screen_height;
 	glfwGetFramebufferSize(window, &screen_width, &screen_height);
