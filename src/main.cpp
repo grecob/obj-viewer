@@ -36,9 +36,9 @@ int main()
 	}
 
 	glEnable(GL_DEPTH_TEST);
-	//Shader shader("1.model_loading.vs", "1.model_loading.fs");
+	Shader myShader("N:/VSCode/side-projects/imGuiExample/1.model_loading.vs", "N:/VSCode/side-projects/imGuiExample/1.model_loading.fs");
 	// flip textures on load
-	Model model("NISSAN-GTR.obj");
+	Model myModel("N:/VSCode/side-projects/imGuiExample/jeep.obj");
 
 
 	int screen_width, screen_height;
@@ -54,11 +54,28 @@ int main()
 		glfwPollEvents();
 		glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
 
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		myimgui.NewFrame();
 		myimgui.Update();
 		myimgui.Render();
+
+		// render model
+		glm::mat4 projection = glm::perspective(glm::radians(60.0f), (float)screen_width / (float)screen_height, 0.1f, 100.0f);
+		glm::mat4 view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), // Camera position
+			glm::vec3(0.0f, 0.0f, 0.0f), // Camera target (center of the scene)
+			glm::vec3(0.0f, 1.0f, 0.0f)); // Up vector
+
+		myShader.setMat4("projection", projection);
+		myShader.setMat4("view", view);
+
+		glm::mat4 model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
+		myShader.setMat4("model", model);
+		myModel.Draw(myShader);
+
 		glfwSwapBuffers(window);
+		
 	}
 	myimgui.Shutdown();
 
