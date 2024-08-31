@@ -127,6 +127,15 @@ build src\CMakeFiles\main.dir\Model.cpp.obj: CXX_COMPILER__main_Debug ..\..\..\s
   TARGET_COMPILE_PDB = src\CMakeFiles\main.dir\
   TARGET_PDB = src\main.pdb
 
+build src\CMakeFiles\main.dir\Camera.cpp.obj: CXX_COMPILER__main_Debug ..\..\..\src\Camera.cpp || cmake_object_order_depends_target_main
+  DEFINES = -DGLFW_DLL
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -Ivcpkg_installed\x64-windows\include
+  OBJECT_DIR = src\CMakeFiles\main.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\main.dir
+  TARGET_COMPILE_PDB = src\CMakeFiles\main.dir\
+  TARGET_PDB = src\main.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target main
@@ -135,7 +144,7 @@ build src\CMakeFiles\main.dir\Model.cpp.obj: CXX_COMPILER__main_Debug ..\..\..\s
 #############################################
 # Link the executable src\main.exe
 
-build src\main.exe: CXX_EXECUTABLE_LINKER__main_Debug src\CMakeFiles\main.dir\main.cpp.obj src\CMakeFiles\main.dir\UseImGui.cpp.obj src\CMakeFiles\main.dir\BasicMesh.cpp.obj src\CMakeFiles\main.dir\shader.cpp.obj src\CMakeFiles\main.dir\Model.cpp.obj | vcpkg_installed\x64-windows\debug\lib\glad.lib vcpkg_installed\x64-windows\debug\lib\glm.lib vcpkg_installed\x64-windows\debug\lib\imguid.lib vcpkg_installed\x64-windows\debug\lib\assimp-vc142-mtd.lib vcpkg_installed\x64-windows\debug\lib\glfw3dll.lib vcpkg_installed\x64-windows\debug\lib\pugixml.lib
+build src\main.exe: CXX_EXECUTABLE_LINKER__main_Debug src\CMakeFiles\main.dir\main.cpp.obj src\CMakeFiles\main.dir\UseImGui.cpp.obj src\CMakeFiles\main.dir\BasicMesh.cpp.obj src\CMakeFiles\main.dir\shader.cpp.obj src\CMakeFiles\main.dir\Model.cpp.obj src\CMakeFiles\main.dir\Camera.cpp.obj | vcpkg_installed\x64-windows\debug\lib\glad.lib vcpkg_installed\x64-windows\debug\lib\glm.lib vcpkg_installed\x64-windows\debug\lib\imguid.lib vcpkg_installed\x64-windows\debug\lib\assimp-vc142-mtd.lib vcpkg_installed\x64-windows\debug\lib\glfw3dll.lib vcpkg_installed\x64-windows\debug\lib\pugixml.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = vcpkg_installed\x64-windows\debug\lib\glad.lib  vcpkg_installed\x64-windows\debug\lib\glm.lib  vcpkg_installed\x64-windows\debug\lib\imguid.lib  vcpkg_installed\x64-windows\debug\lib\assimp-vc142-mtd.lib  vcpkg_installed\x64-windows\debug\lib\glfw3dll.lib  vcpkg_installed\x64-windows\debug\lib\pugixml.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

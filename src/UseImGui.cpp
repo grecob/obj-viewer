@@ -21,7 +21,7 @@ void UseImGui::NewFrame()
 	ImGui::NewFrame();
 }
 
-void UseImGui::Update(){
+void UseImGui::Update(Camera* camera){
 	
 	// render GUI
 	ImGui::SetNextWindowPos({ 0,0 });
@@ -30,17 +30,20 @@ void UseImGui::Update(){
 
 	ImGui::SetNextWindowSize({ viewportSizeX / 4, viewportSizeY });
 
-	static float x = 0.0f;
-	static float y = 0.0f;
-	static float z = 0.0f;
-	static int counter = 0;
+	//static glm::vec3 camera(0.0, 0.0, 5.0);
+	//static float fov = 60.0f;
 
 	ImGui::Begin("Hello world!");
 	
 	ImGui::Text("camera position");
-	ImGui::SliderFloat("x", &x, 0.0f, 1.0f);
-	ImGui::SliderFloat("y", &y, 0.0f, 1.0f);
-	ImGui::SliderFloat("z", &z, 0.0f, 1.0f);
+	float fov = camera->fov;
+	glm::vec3 cameraPos = camera->getCameraPosition();
+
+	ImGui::SliderFloat("fov", &fov, 50.0, 120.0f);
+	ImGui::SliderFloat3("Camera Position", &cameraPos[0], -20.0f, 20.0f);
+
+	camera->fov = fov;
+	camera->setCameraPosition(cameraPos);
 
 	ImGui::Separator();
 	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);

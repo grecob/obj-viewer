@@ -4,7 +4,7 @@
 cmake_minimum_required (VERSION 3.8)
 
 # Add source to this project's executable.
-add_executable (main "main.cpp"  "UseImGui.cpp" "UseImGui.h" "BasicMesh.cpp" "BasicMesh.h" "shader.h" "shader.cpp" "Model.h" "Model.cpp")
+add_executable (main "main.cpp"  "UseImGui.cpp" "UseImGui.h" "BasicMesh.cpp" "BasicMesh.h" "shader.h" "shader.cpp" "Model.h" "Model.cpp" "Camera.h" "Camera.cpp")
 
 find_package(glad CONFIG REQUIRED)
 target_link_libraries(main PRIVATE glad::glad)
