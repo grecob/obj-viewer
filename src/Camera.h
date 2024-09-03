@@ -15,6 +15,7 @@ public:
 	void setCameraPosition(glm::vec3 cP) { this->cameraPosition = cP; };
 	void setCameraTarget(glm::vec3 cT) { this->cameraTarget = cT; };
 	void setCameraUp(glm::vec3 cU) { this->cameraUp = cU; };
+	void setFov(float fov) { this->fov = fov; };
 
 	static float fov;
 

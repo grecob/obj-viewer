@@ -37,7 +37,7 @@ int main()
 
 	glEnable(GL_DEPTH_TEST);
 	Shader myShader("N:/VSCode/side-projects/imGuiExample/1.model_loading.vs", "N:/VSCode/side-projects/imGuiExample/1.model_loading.fs");
-	// flip textures on load
+	
 	Model myModel("N:/VSCode/side-projects/imGuiExample/cube.obj");
 
 
@@ -50,6 +50,7 @@ int main()
 	Camera* camera;
 	camera = new Camera();
 
+
 	myimgui.Init(window, glsl_version);
 	while (!glfwWindowShouldClose(window)) {
 		// check for clicks and events for window.
@@ -57,14 +58,14 @@ int main()
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		myimgui.NewFrame();
-		myimgui.Update(camera);
+		myimgui.Update(camera, &myShader);
 		myimgui.Render();
 
 		myShader.use();
 
 		// render model
 		glm::mat4 projection = glm::perspective(glm::radians(camera->fov), (float)screen_width / (float)screen_height, 0.1f, 100.0f);
-
+		
 		glm::mat4 view = glm::lookAt( camera->getCameraPosition(), camera->getcameraTarget(), camera->getCameraUp() );
 
 		myShader.setMat4("projection", projection);
@@ -72,9 +73,16 @@ int main()
 
 		glm::mat4 model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(0.25f, 0.25f, 0.25f));	// it's a bit too big for our scene, so scale it down
+		model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
 		myShader.setMat4("model", model);
+
+		
+		//myShader.setVec3("objectColor", lightColor.x, lightColor.y, lightColor.z);
+		//myShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+		
 		myModel.Draw(myShader);
+
+		
 
 
 		glfwSwapBuffers(window);

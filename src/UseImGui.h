@@ -5,13 +5,14 @@
 #include <imgui_impl_opengl3.h>
 #include <glm/glm.hpp>
 #include "Camera.h"
+#include "shader.h"
 
 class UseImGui
 {
 public:
 	void Init(GLFWwindow* window, const char* glsl_version);
 	void NewFrame();
-	virtual void Update(Camera* camera);
+	virtual void Update(Camera* camera, Shader* shader);
 	void Render();
 	void Shutdown();
 

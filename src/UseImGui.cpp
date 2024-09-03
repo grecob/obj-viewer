@@ -21,7 +21,7 @@ void UseImGui::NewFrame()
 	ImGui::NewFrame();
 }
 
-void UseImGui::Update(Camera* camera){
+void UseImGui::Update(Camera* camera, Shader* shader){
 	
 	// render GUI
 	ImGui::SetNextWindowPos({ 0,0 });
@@ -36,7 +36,7 @@ void UseImGui::Update(Camera* camera){
 	ImGui::Begin("Hello world!");
 	
 	ImGui::Text("camera position");
-	float fov = camera->fov;
+	float& fov = camera->fov;
 	glm::vec3 cameraPos = camera->getCameraPosition();
 
 	ImGui::SliderFloat("fov", &fov, 50.0, 120.0f);
@@ -46,6 +46,18 @@ void UseImGui::Update(Camera* camera){
 	camera->setCameraPosition(cameraPos);
 
 	ImGui::Separator();
+
+	// lighting
+	static glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
+	static glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
+
+	shader->setVec3("objectColor", 1.0f, 0.5f, 0.31f);
+	shader->setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+
+	ImGui::SliderFloat3("color",  , 0.0f, 1.0f);
+
+
+	
 	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 	
 
